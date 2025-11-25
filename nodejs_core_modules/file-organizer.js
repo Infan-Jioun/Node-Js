@@ -142,5 +142,16 @@ function initializeDirectories() {
     })
   }
   console.log("Messy Categories file are created ");
+  if (!fs.existsSync(organizedDir)) {
+    fs.mkdirSync(organizedDir, { recursive: true })
+  }
+  Object.keys(categories).forEach((category) => {
+    const categoryPath = path.join(organizedDir, category);
+    if (!fs.existsSync(categoryPath)) {
+      fs.mkdirSync(categoryPath)
+    }
+  })
 }
+
 initializeDirectories();
+
