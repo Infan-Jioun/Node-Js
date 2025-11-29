@@ -9,6 +9,6 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
         }))
     }
 })
-server.listen(config, () => {
+server.listen(config.port, () => {
     console.log(`Server is running on port ${config.port}`);
 })
