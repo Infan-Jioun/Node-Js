@@ -8,6 +8,13 @@ const server: Server = http.createServer((req: IncomingMessage, res: ServerRespo
             path: req.url
         }))
     }
+    if (req.url === "/api" && req.method === "GET") {
+        res.writeHead(200, { "content-type": "application/json" })
+        res.end(JSON.stringify({
+            message: "Health status okay... ",
+            path: req.url
+        }))
+    }
 })
 server.listen(config.port, () => {
     console.log(`Server is running on port ${config.port}`);
